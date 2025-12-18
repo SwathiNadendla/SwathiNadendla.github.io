@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swathi Nadendla - Bioinformatics Researcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0A5F5F;
+            --primary-light: #0D8585;
+            --primary-dark: #073D3D;
+            --accent: #D4763A;
+            --accent-light: #E89663;
+            
+            --text-dark: #1A1A1A;
+            --text-medium: #4A4A4A;
+            --text-light: #7A7A7A;
+            
+            --bg-white: #FFFFFF;
+            --bg-cream: #FAFAF8;
+            --bg-light: #F5F5F3;
+            
+            --font-display: 'Crimson Pro', serif;
+            --font-body: 'DM Sans', sans-serif;
+            
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background: var(--bg-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(10, 95, 95, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-white) 100%);
+            overflow: hidden;
+        }
+
+        .hero-decoration {
+            position: absolute;
+            top: 10%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(10, 95, 95, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-30px, 30px) scale(1.1); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-label {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title .line {
+            display: block;
+            animation: fadeInUp 1s ease-out backwards;
+        }
+
+        .hero-title .line:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .hero-title .line:nth-child(2) {
+            animation-delay: 0.4s;
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-medium);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.5s backwards;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-cream);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-story p {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-story .lead {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            font-family: var(--font-display);
+        }
+
+        .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .highlight-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .highlight-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-card p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Research Section */
+        .research {
+            background: var(--bg-white);
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .research-category {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .research-category:hover {
+            background: white;
+            box-shadow: var(--shadow-md);
+            transform: translateX(4px);
+        }
+
+        .research-category h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .research-category ul {
+            list-style: none;
+        }
+
+        .research-category li {
+            color: var(--text-medium);
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .research-category li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Timeline */
+        .experience-timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+            padding-left: 0;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: -3.5rem;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: var(--primary);
+            border: 4px solid var(--bg-white);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px var(--bg-light);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h4 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-location {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        /* Publications Section */
+        .publications {
+            background: var(--bg-cream);
+        }
+
+        .pub-category {
+            margin-bottom: 4rem;
+        }
+
+        .pub-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .pub-category h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--primary);
+            display: inline-block;
+        }
+
+        .pub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .pub-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border-left: 4px solid transparent;
+        }
+
+        .pub-item:hover {
+            border-left-color: var(--accent);
+            box-shadow: var(--shadow-md);
+            transform: translateX(4px);
+        }
+
+        .pub-status {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: var(--primary-light);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        .pub-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .pub-authors {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-authors strong {
+            color: var(--primary);
+        }
+
+        .pub-journal {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Awards */
+        .awards-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 2px solid var(--primary);
+        }
+
+        .awards-section h3 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .award-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: var(--transition);
+        }
+
+        .award-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .award-icon {
+            font-size: 2rem;
+        }
+
+        .award-item p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        .contact .section-label {
+            color: var(--accent-light);
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-text {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-text p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            gap: 1rem;
+            align-items: start;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+        }
+
+        .contact-label {
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-light);
+        }
+
+        .contact-item p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+        }
+
+        .footer-note {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-content {
+                padding: 1rem 1.5rem;
+            }
+            
+            .nav-links {
+                gap: 1.5rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+            
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .experience-timeline {
+                padding-left: 2rem;
+            }
+            
+            .timeline-marker {
+                left: -2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .logo {
+                font-size: 1.2rem;
+            }
+            
+            .hero-label {
+                font-size: 0.75rem;
+            }
+        }
+
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo">SN</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#research">Research</a>
+                <a href="#publications">Publications</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label">PhD Candidate • Bioinformatics & Computational Biology</div>
+            <h1 class="hero-title">
+                <span class="line">Swathi</span>
+                <span class="line">Nadendla</span>
+            </h1>
+            <p class="hero-subtitle">
+                Translating genomic complexity into diagnostic clarity—<br>
+                from pharmacy to pipelines, molecules to meaning.
+            </p>
+            <div class="hero-cta">
+                <a href="#about" class="btn-primary">Explore My Work</a>
+                <a href="#contact" class="btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+        <div class="hero-decoration"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">The Journey</span>
+                <h2 class="section-title">From Molecules to Microbes</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-story">
+                    <p class="lead">My path to computational biology wasn't linear—it was intentional.</p>
+                    
+                    <p>Starting with a Bachelor's in Pharmacy in India, I developed a fascination with how drugs interact with biological systems. This curiosity led me to NIPER Mohali, where I earned my Master's in Pharmacoinformatics, bridging the gap between pharmaceutical sciences and computational approaches.</p>
+                    
+                    <p>At Course5i in Bangalore, I analyzed real-world clinical data in the respiratory disease space, extracting insights from messy datasets and understanding how data drives decision-making in healthcare markets. This experience crystallized something important: the future of medicine lies in our ability to decode biological information at scale.</p>
+                    
+                    <p>Today, as a PhD candidate at Iowa State University in Dr. El-Gazzar's laboratory, I'm developing computational approaches for avian pathogen diagnostics. My work focuses on Newcastle Disease Virus and Avian Metapneumovirus detection using Oxford Nanopore sequencing—designing multiplex PCR panels, building real-time analysis pipelines, and creating tools that turn raw sequencing data into actionable diagnostic information.</p>
+                    
+                    <p>Beyond the bench and the terminal, I'm committed to building community. As President of the BCB Graduate Student Organization and Co-Director of the Interdisciplinary Biological Sciences Symposium, I work to create spaces where diverse scientific perspectives converge and collaboration thrives.</p>
+                </div>
+                
+                <div class="about-highlights">
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🔬</div>
+                        <h3>Current Focus</h3>
+                        <p>Developing universal primer designs and real-time analysis pipelines for viral pathogen detection using Oxford Nanopore technologies</p>
+                    </div>
+                    
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🧬</div>
+                        <h3>Expertise</h3>
+                        <p>NGS analysis, pipeline development (Snakemake, R, Python), molecular modeling, and translating sequencing data into biological insights</p>
+                    </div>
+                    
+                    <div class="highlight-card">
+                        <div class="highlight-icon">🎓</div>
+                        <h3>Leadership</h3>
+                        <p>President of BCB GSO, Co-Director of IBSS, and mentor to graduate students navigating their academic journey</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="research">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Expertise</span>
+                <h2 class="section-title">Research & Technical Skills</h2>
+            </div>
+            
+            <div class="research-grid">
+                <div class="research-category">
+                    <h3>Bioinformatics & Genomics</h3>
+                    <ul>
+                        <li>Oxford Nanopore sequencing</li>
+                        <li>RNA-seq analysis</li>
+                        <li>Multiplex PCR panel design</li>
+                        <li>NGS data analysis pipelines</li>
+                        <li>Genome assembly & variant calling</li>
+                        <li>Workflow automation (Snakemake, Nextflow)</li>
+                    </ul>
+                </div>
+                
+                <div class="research-category">
+                    <h3>Programming & Data Science</h3>
+                    <ul>
+                        <li>R (tidyverse, ggplot2, Bioconductor)</li>
+                        <li>Python (pandas, seaborn, Beautiful Soup)</li>
+                        <li>Bash scripting</li>
+                        <li>Git version control</li>
+                        <li>Interactive visualization (R Shiny, Plotly)</li>
+                        <li>Statistical analysis & data visualization</li>
+                    </ul>
+                </div>
+                
+                <div class="research-category">
+                    <h3>Molecular Modeling</h3>
+                    <ul>
+                        <li>GROMACS molecular dynamics</li>
+                        <li>Molecular docking</li>
+                        <li>RDKit cheminformatics</li>
+                        <li>Drug design & CADD</li>
+                        <li>Protein-ligand interactions</li>
+                    </ul>
+                </div>
+                
+                <div class="research-category">
+                    <h3>Research Interests</h3>
+                    <ul>
+                        <li>Precision medicine</li>
+                        <li>Infectious disease monitoring</li>
+                        <li>Systems biology</li>
+                        <li>Biomarker discovery</li>
+                        <li>Translational research</li>
+                        <li>Diagnostic tool development</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-timeline">
+                <h3 class="timeline-title">Research Experience</h3>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024 - Present</div>
+                        <h4>Graduate Research Assistant</h4>
+                        <p class="timeline-location">Dr. El-Gazzar Lab, Veterinary Microbiology & Preventive Medicine</p>
+                        <p>Designing multiplex PCR panels and developing real-time data analysis pipelines for Oxford Nanopore sequencing of avian pathogens, focusing on Newcastle Disease Virus and Avian Metapneumovirus diagnostics.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - 2024</div>
+                        <h4>Research Assistant</h4>
+                        <p class="timeline-location">Dr. Potoyan Lab, Chemistry Department</p>
+                        <p>Performed molecular dynamics simulations using Python, building expertise in computational modeling and simulation techniques.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Prior Rotations</div>
+                        <h4>Research Rotations</h4>
+                        <p class="timeline-location">Dr. Chowdhury Lab & Dr. Kumar Lab</p>
+                        <p>Developed methane mitigation strategies through computational drug design (Chowdhury Lab). Conducted PCR and malaria cell culture work with hands-on molecular biology techniques (Kumar Lab).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="publications">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Scientific Output</span>
+                <h2 class="section-title">Publications & Presentations</h2>
+            </div>
+            
+            <div class="pub-category">
+                <h3>Publications</h3>
+                <div class="pub-list">
+                    <div class="pub-item">
+                        <div class="pub-status">Under Review</div>
+                        <p class="pub-title">Exploring putative enteric methanogenesis inhibitors using molecular simulations and a graph neural network</p>
+                        <p class="pub-authors">Randy Aryee, Noor S. Mohammed, Supantha Dey, B. Arunraj, <strong>Swathi Nadendla</strong>, Karuna Anna Sajeevan, Matthew R. Beck, A. Nathan Frazier, Jacek A. Koziel, Thomas J. Mansell, Ratul Chowdhury</p>
+                        <p class="pub-journal">bioRxiv 2024.09.16.613350</p>
+                    </div>
+                    
+                    <div class="pub-item">
+                        <div class="pub-status">Published</div>
+                        <p class="pub-title">Identification of Potential ACE2-Derived Peptide Mimetics in SARS-CoV-2 Omicron Variant Therapeutics using Computational Approaches</p>
+                        <p class="pub-authors">Stanly Paul, <strong>Swathi Nadendla</strong>, and M Elizabeth Sobhia</p>
+                        <p class="pub-journal">The Journal of Physical Chemistry Letters (2022) 13(32)</p>
+                    </div>
+                    
+                    <div class="pub-item">
+                        <div class="pub-status">Published</div>
+                        <p class="pub-title">Formulate and evaluate once daily sustained release tablet of highly soluble drug of metformin Hcl</p>
+                        <p class="pub-authors">B. Valli Manalan, <strong>Nadendla Swathi</strong></p>
+                        <p class="pub-journal">Int. J. Res. Pharm. Sci & Tech., 1(4), 138-145</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pub-category">
+                <h3>Conference Presentations</h3>
+                <div class="pub-list">
+                    <div class="pub-item">
+                        <p class="pub-title">Coupling Bioinformatics approaches and Oxford Nanopore (ONT) sequencing for enhanced Diagnosis of Newcastle Disease Virus (NDV) in Poultry</p>
+                        <p class="pub-journal">Interdisciplinary Biological Sciences Symposium</p>
+                    </div>
+                    
+                    <div class="pub-item">
+                        <p class="pub-title">Use of Bioinformatic Approaches for Primer Design for Newcastle Disease Virus Sequence Typing from Clinical Samples</p>
+                        <p class="pub-journal">North Central Avian Disease Conference</p>
+                    </div>
+                    
+                    <div class="pub-item">
+                        <p class="pub-title">Nested PCR for the Sensitive Amplification and Sequencing of the Fusion Gene for Newcastle Disease Virus Sequence typing</p>
+                        <p class="pub-journal">North Central Avian Disease Conference</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="awards-section">
+                <h3>Awards & Recognition</h3>
+                <div class="awards-grid">
+                    <div class="award-item">
+                        <div class="award-icon">🏆</div>
+                        <p>North Central Avian Disease Conference Travel Award</p>
+                    </div>
+                    <div class="award-item">
+                        <div class="award-icon">🏆</div>
+                        <p>NAHLN NGS Symposia Travel Award</p>
+                    </div>
+                    <div class="award-item">
+                        <div class="award-icon">🏆</div>
+                        <p>Academic Excellence Award</p>
+                    </div>
+                    <div class="award-item">
+                        <div class="award-icon">🏆</div>
+                        <p>Student Leader Recognition - IBSS Symposium</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Let's Connect</span>
+                <h2 class="section-title">Get in Touch</h2>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-text">
+                    <p>I'm always interested in discussing research collaborations, computational biology challenges, or opportunities in genomics and precision medicine. Whether you're looking for expertise in NGS analysis, pipeline development, or have questions about my work, feel free to reach out.</p>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <div class="contact-label">Email</div>
+                            <a href="mailto:swathi79@iastate.edu">swathi79@iastate.edu</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <div class="contact-label">Location</div>
+                            <p>Ames, Iowa 50014</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div>
+                            <div class="contact-label">LinkedIn</div>
+                            <a href="https://www.linkedin.com/in/swathinadendla/" target="_blank">linkedin.com/in/swathinadendla</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">💻</div>
+                        <div>
+                            <div class="contact-label">GitHub</div>
+                            <a href="https://github.com/SwathiNadendla" target="_blank">github.com/SwathiNadendla</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Swathi Nadendla. All rights reserved.</p>
+            <p class="footer-note">PhD Candidate in Bioinformatics & Computational Biology • Iowa State University</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Add parallax effect to hero decoration
+        const heroDecoration = document.querySelector('.hero-decoration');
+        if (heroDecoration) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallax = scrolled * 0.5;
+                heroDecoration.style.transform = `translate(0, ${parallax}px)`;
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease-in';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
